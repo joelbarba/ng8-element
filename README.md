@@ -1,27 +1,17 @@
 # Ng8Element
 
+This generates a "Web Component" that can be reused out of Angular framework within any other web page.
+It bootstraps an Angular element (as angular component) into a js file that will expose it into the [customElements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) interface
+
+Later you can use the component `<hello-world></hello-world>` wherever in the web.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` to test the component locally.
+Run `npm run build` to bundle the component into `concat-build.js` and get it ready to be used externally
 
-## Code scaffolding
+## Test
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+There is a simple external web app in `/random-app` that you can run to see how the component behaves.
