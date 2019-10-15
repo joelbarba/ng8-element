@@ -1,19 +1,31 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'hello-world',
   templateUrl: './hello-world.component.html',
-  styleUrls: ['./hello-world.component.scss'],
-  encapsulation: ViewEncapsulation.Native
+  styleUrls: ['./hello-world.component.scss']
 })
 export class HelloWorldComponent implements OnInit {
-  public myVar = 'hello world!';
-  constructor() { }
+  public myVar = '';
+  constructor(private cd: ChangeDetectorRef) { }
+
   ngOnInit() {
-    setInterval(() => {
-      this.myVar += '!';
-      if (this.myVar.length > 30) { this.myVar = 'hello world!'; }
-    }, 200);
+    this.myVar = 'hello world!';
+    console.log('ngOnInit', new Date());
+    setInterval(this.doIt, 1200);
+  }
+
+  doIt = () => {
+    console.log('!', new Date());
+    this.myVar += '!';
+    if (this.myVar.length > 30) { this.myVar = 'hello world!'; }
+    this.cd.detectChanges();
+    // this.cd.markForCheck();
+  };
+
+  reset = () => {
+    this.myVar = 'x';
+    this.cd.detectChanges();
   }
 
 }
